@@ -119,21 +119,25 @@ function getRandomOperators() {
 function generateItem() {
     for ( let i=0; i<1000; ++i ) {
         let operator = getRandomOperators();
-        let small1 = Math.floor(Math.random() * model.range+1);
-        let small2 = Math.floor(Math.random() * model.range+1);
 
-        let large
+        let large, small1, small2;
         if ( operator == OPERATOR_ADD || operator == OPERATOR_SUB ) {
+            small1 = Math.floor(Math.abs(Math.sinh(Math.random()/Math.PI*2)) * (model.range+1));
+            small2 = Math.floor(Math.random() * (model.range-small1+1));
             large = small1 + small2
             if ( large > model.range ) {
                 continue;
             }
-        }
-        if ( operator == OPERATOR_MUL || operator == OPERATOR_DIV ) {
-            large = small1 * small2
+        } else if ( operator == OPERATOR_MUL || operator == OPERATOR_DIV ) {
+            small1 = Math.floor(Math.abs(Math.sinh(Math.random()/Math.PI*2)) * (Math.pow(model.range,0.5)*2+1));
+            small2 = Math.floor(Math.random() * (model.range/(small1?small1:1)+1));
+            large = Math.floor(small1 * small2);
+            console.log(small1, small2, large);
             if ( large > model.range ) {
                 continue;
             }
+        } else {
+            throw "Invalid operator: " + operator;
         }
         if ( model.pattern == PATTERN_NORMAL ) {
             return generateNormalItem(operator, small1, small2, large);
@@ -227,14 +231,14 @@ function docLoaded() {
 
 function settingsChanged() {
     let form = document.forms["control_form"];
-    model.count = form.elements["count"].value;
-    model.range = form.elements["range"].value;
+    model.count = parseInt(form.elements["count"].value);
+    model.range = parseInt(form.elements["range"].value);
     for ( let operator of Object.keys(model.operators) ) {
         model.operators[operator].selected = form.elements[operator].checked;
-        model.operators[operator].percent = form.elements[getPercentInputName(operator)].value;
+        model.operators[operator].percent = parseInt(form.elements[getPercentInputName(operator)].value);
     }
     model.pattern = form.elements["pattern"].value;
-    model.column = form.elements["column"].value;
+    model.column = parseInt(form.elements["column"].value);
     updateContent()
 }
 
