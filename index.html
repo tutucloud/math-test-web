@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>算术运算</title>
+        <script type="text/javascript" src="js/controller.js"></script>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/print_style.css"/>
+    </head>
+    <body>
+        
+        <nav class="control">
+            <form id="control_form" action="javascript:void()">
+                <div class="input_field">
+                    <label class="input_label" for="count">题目数：</label>
+                    <select class="number_select" name="count">
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                    </select>
+                </div>
+                <div class="input_field">
+                    <label class="input_label" for="range">范围：</label>
+                    <select class="number_select" name="range">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <label>以内</label>
+                </div>
+                <div class="input_field">
+                    <fieldset>
+                        <legend>操作符</legend>
+                        <div>
+                            <input type="checkbox" name="add" id="input_add" onchange="inputOperatorChanged('add')"/>
+                            <label for="input_add">加法</label>
+                            <input type="range" class="operator_percent" name="add_percent" min=0 max=100 onchange="inputPercentChanged('add')"/>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="sub" id="input_sub" onchange="inputOperatorChanged('sub')"/>
+                            <label for="input_sub">减法</label>
+                            <input type="range" class="operator_percent" name="sub_percent" min=0 max=100 onchange="inputPercentChanged('sub')"/>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="mul" id="input_mul" onchange="inputOperatorChanged('mul')"/>
+                            <label for="input_mul">乘法</label>
+                            <input type="range" class="operator_percent" name="mul_percent" min=0 max=100 onchange="inputPercentChanged('mul')"/>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="div" id="input_div" onchange="inputOperatorChanged('div')"/>
+                            <label for="input_div">除法</label>
+                            <input type="range" class="operator_percent" name="div_percent" min=0 max=100 onchange="inputPercentChanged('div')"/>
+                        </div>
+                        <input type="button" value="平衡" onclick="balanceClicked()"/>
+                    </fieldset>
+                </div>
+                <div class="input_field">
+                    <fieldset>
+                        <legend>样式</legend>
+                        <div><input type="radio" name="pattern" value="normal" id="input_normal"/><label for="input_normal">A+B=</label></div>
+                        <div><input type="radio" name="pattern" value="fill" id="input_fill"/><label for="input_fill">A+(?)=C</label></div>
+                    </fieldset>
+                </div>
+                <div class="input_field">
+                    <label class="input_label" for="column">列数：</label>
+                    <select class="number_select" name="column">
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="button_area">
+                    <input onclick="settingsChanged()" type="button" value="更新"/>
+                    <input onclick="printDoc()" type="button" value="打印"/>
+                </div>
+            </form>
+        </nav>
+
+        <section class="doc">
+            <header>
+                <h1 class="title" id="title">算术运算</h1>
+                <h4 class="subtitle">
+                    <label class="subtitle_item">题目数：<span id="count"></span></label>
+                    <label class="subtitle_item">日期：________年____月____日</label>
+                    <label class="subtitle_item">用时：________</label>
+                    <label class="subtitle_item">得分：________</label>
+                </h4>
+            </header>
+            <section>
+                <table id="item_table">
+                </table>
+            </section>
+        </section>
+        
+    </body>
+</html>

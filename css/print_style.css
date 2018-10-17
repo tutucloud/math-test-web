@@ -1,0 +1,18 @@
+
+@page {
+    margin: 1cm;
+}
+
+@media print {
+
+.doc {
+    position: inherit;
+    margin: inherit;
+    width: 100%;
+}
+
+.control {
+    display: none;
+}
+
+}

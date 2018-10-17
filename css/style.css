@@ -1,0 +1,75 @@
+
+
+
+.doc {
+    position: absolute;
+    left: 250px;
+    width: 210mm;
+}
+
+
+.title {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.subtitle > .subtitle_item {
+    margin: 5mm;
+}
+
+.control {
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 250px;
+    border-right: 1px solid gray;
+}
+
+.control .input_field {
+    margin: 2mm
+}
+
+.control .input_label {
+    display: inline-block;
+    width: 70px;
+}
+
+.control .number_input {
+    width: 30px;
+}
+
+.control .number_select {
+    width: 50px;
+}
+
+.control .button_area {
+    margin-top: 5mm;
+    text-align: right;
+    padding-right: 5mm;
+}
+
+.control .input_field fieldset .operator_percent {
+    position: relative;
+    top: 4px;
+    width: 110px;
+}
+
+.control .input_field fieldset input[type="radio"],
+.control .input_field fieldset input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#item_table {
+    font-family: "Lucida Console";
+    font-size: 12pt;
+    width: 100%;
+    text-align: center;
+    margin-top: 2mm;
+}
+
+#item_table > tr > td {
+    padding-top: 1mm;
+}
