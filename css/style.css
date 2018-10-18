@@ -51,10 +51,30 @@
     padding-right: 5mm;
 }
 
+.control .input_field .button_area {
+    margin-top: 0mm;
+}
+
+.control .operator_label {
+    display: inline-block;
+    width: 40px;
+}
+
+.control .pattern_label {
+    display: inline-block;
+    width: 50px;
+}
+
 .control .input_field fieldset .operator_percent {
     position: relative;
     top: 4px;
-    width: 110px;
+    width: 100px;
+}
+
+.control .input_field fieldset .pattern_percent {
+    position: relative;
+    top: 4px;
+    width: 90px;
 }
 
 .control .input_field fieldset input[type="radio"],
