@@ -138,19 +138,16 @@ function generateItem() {
 
         let large, small1, small2;
         if ( operator == OPERATOR_ADD || operator == OPERATOR_SUB ) {
-            small1 = Math.floor(randomForAdd() * (model.range+1));
-            small2 = Math.floor(randomForAdd() * (model.range+1));
+            small1 = Math.ceil(randomForAdd() * (model.range));
+            small2 = Math.ceil(randomForAdd() * (model.range));
             large = small1 + small2
             if ( large > model.range ) {
                 continue;
             }
         } else if ( operator == OPERATOR_MUL || operator == OPERATOR_DIV ) {
-            small1 = Math.floor(Math.random()*10+1);
-            small2 = Math.round(Math.random()*10+1);
+            small1 = Math.ceil(Math.random()*10);
+            small2 = Math.ceil(Math.random()*10);
             large = Math.floor(small1 * small2);
-            if ( large > model.range ) {
-                continue;
-            }
         } else {
             throw "Invalid operator: " + operator;
         }
@@ -167,7 +164,7 @@ function fillSpace(value) {
     value = ""+value;
     let len = value.length;
     let numStrLen = getNumStrLen(model)
-    let left = Math.floor((numStrLen - len)/2);
+    let left = Math.ceil((numStrLen - len)/2);
     let right = numStrLen - len - left;
     return "&nbsp;".repeat(left) + value + "&nbsp;".repeat(right);
 }
