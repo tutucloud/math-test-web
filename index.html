@@ -35,33 +35,44 @@
                         <div>
                             <input type="checkbox" name="add" id="input_add" onchange="inputOperatorChanged('add')"/>
                             <label for="input_add">加法</label>
-                            <input type="range" class="operator_percent" name="add_percent" min=0 max=100 onchange="inputPercentChanged('add')"/>
+                            <input type="range" class="operator_percent" name="add_percent" min=0 max=100 onchange="inputOperatorPercentChanged('add')"/>
                         </div>
                         <div>
                             <input type="checkbox" name="sub" id="input_sub" onchange="inputOperatorChanged('sub')"/>
                             <label for="input_sub">减法</label>
-                            <input type="range" class="operator_percent" name="sub_percent" min=0 max=100 onchange="inputPercentChanged('sub')"/>
+                            <input type="range" class="operator_percent" name="sub_percent" min=0 max=100 onchange="inputOperatorPercentChanged('sub')"/>
                         </div>
                         <div>
                             <input type="checkbox" name="mul" id="input_mul" onchange="inputOperatorChanged('mul')"/>
                             <label for="input_mul">乘法</label>
-                            <input type="range" class="operator_percent" name="mul_percent" min=0 max=100 onchange="inputPercentChanged('mul')"/>
+                            <input type="range" class="operator_percent" name="mul_percent" min=0 max=100 onchange="inputOperatorPercentChanged('mul')"/>
                         </div>
                         <div>
                             <input type="checkbox" name="div" id="input_div" onchange="inputOperatorChanged('div')"/>
                             <label for="input_div">除法</label>
-                            <input type="range" class="operator_percent" name="div_percent" min=0 max=100 onchange="inputPercentChanged('div')"/>
+                            <input type="range" class="operator_percent" name="div_percent" min=0 max=100 onchange="inputOperatorPercentChanged('div')"/>
                         </div>
                         <div class="button_area">
-                            <input type="button" value="平衡" onclick="balanceClicked()"/>
+                            <input type="button" value="平衡" onclick="operatorsBalanceClicked()"/>
                         </div>
                     </fieldset>
                 </div>
                 <div class="input_field">
                     <fieldset>
                         <legend>样式</legend>
-                        <div><input type="radio" name="pattern" value="normal" id="input_normal"/><label for="input_normal">A+B=</label></div>
-                        <div><input type="radio" name="pattern" value="fill" id="input_fill"/><label for="input_fill">A+(?)=C</label></div>
+                        <div>
+                            <input type="checkbox" name="normal" id="input_normal" onchange="inputPatternChanged('normal')"/>
+                            <label for="input_normal">A+B=</label>
+                            <input type="range" class="pattern_percent" name="normal_percent" min=0 max=100 onchange="inputPatternPercentChanged('normal')"/>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="fill" id="input_fill" onchange="inputPatternChanged('fill')"/>
+                            <label for="input_fill">A+(?)=C</label>
+                            <input type="range" class="pattern_percent" name="fill_percent" min=0 max=100 onchange="inputPatternPercentChanged('fill')"/>
+                        </div>
+                        <div class="button_area">
+                            <input type="button" value="平衡" onclick="patternsBalanceClicked()"/>
+                        </div>
                     </fieldset>
                 </div>
                 <div class="input_field">
