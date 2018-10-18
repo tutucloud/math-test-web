@@ -62,7 +62,7 @@
 
 .control .pattern_label {
     display: inline-block;
-    width: 50px;
+    width: 60px;
 }
 
 .control .input_field fieldset .operator_percent {
@@ -74,7 +74,7 @@
 .control .input_field fieldset .pattern_percent {
     position: relative;
     top: 4px;
-    width: 90px;
+    width: 80px;
 }
 
 .control .input_field fieldset input[type="radio"],
